@@ -39,19 +39,6 @@ function componentDidMount() {
     // Get the roll number
 
 
-    useEffect(() => {
-
-        const paths = window
-            .location
-            .pathname
-            .split("/")
-            .filter(path => path !== "")[1];
-
-        rollno =paths;
-        console.log(paths);
-    }, []);
-
-
     }
 
 function getStud() {
@@ -70,14 +57,18 @@ function getStud() {
     }
     }
 
-function reload() {
-    useEffect(() =>{
-        window.location.reload();
-    },[]);
-}
-
 function show() {
     thead = "Courses";
+
+    const paths = window
+            .location
+            .pathname
+            .split("/")
+            .filter(path => path !== "")[1];
+
+        rollno =paths;
+        console.log(paths);
+
 
     getStud();
     console.log(student);
@@ -132,6 +123,14 @@ function show() {
 
 
 function Dashboard() {
+    const paths = window
+            .location
+            .pathname
+            .split("/")
+            .filter(path => path !== "")[1];
+
+        rollno =paths;
+        console.log(paths);
 
     const [, forceRender] = useState(undefined);
 
@@ -200,19 +199,19 @@ function Dashboard() {
                             <div
                                 className="grid grid-cols-8 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 gap-x-16 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
                                 <div className="flex items-center">{thead}</div>
-                                {week.map((day) => <div>{day}</div>)}
+                                {week.map((day) => <div key={day.id}>{day}</div>)}
 
                             </div>
                             {
                                 final.map((row) =>
-                                    <div
+                                    <div key={row.id}
                                         className="grid grid-cols-8 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
 
                                         <div className="text-gray-500 dark:text-gray-400">{row[0]}</div>
 
                                         {row.map((att) => {
                                                 if(att == 1) {
-                                                    return(<div>
+                                                    return(<div key={att.id}>
                                                         <svg className="w-3 h-3 text-green-500" aria-hidden="true"
                                                              xmlns="http://www.w3.org/2000/svg" fill="none"
                                                              viewBox="0 0 16 12">
@@ -222,7 +221,7 @@ function Dashboard() {
                                                         </svg>
                                                     </div>)
                                                 }else if(att == 0) {
-                                                    return(<div>
+                                                    return(<div key={att.id}>
                                                         <svg className="w-3 h-3 text-red-500" aria-hidden="true"
                                                              xmlns="http://www.w3.org/2000/svg" fill="none"
                                                              viewBox="0 0 14 14">

@@ -5,94 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00cabdcf-764e-40c8-9296-5ae471def62e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Attendance App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/attendance_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/attendance_app/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/attendance_app/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/attendance_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/attendance_app/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/0002_student_pfp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/0003_student_courses.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/0004_attendance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/0005_alter_attendance_student.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/dbconnect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/insert email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/markattendance/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/beams.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/beamsdark.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/grid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/camera.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/lc-form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/problem_card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/theme-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/command-menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/dropdown-menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/icons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/label.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/leetcode.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/scroll-area.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/select.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/sheet.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/theme-dropdown.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/config/docs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/config/site.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/jsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/lib/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/next.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/postcss.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/tailwind.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/types/nav.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/id-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/id-card3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/id-card4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/id-card5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/idcar_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/idcardfinal.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/selfie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/selfie.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/selfie3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/selfie_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pfps/try1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav-login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav-login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-header-login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +92,7 @@
       <workItem from="1716008242342" duration="2429000" />
       <workItem from="1716083336670" duration="35022000" />
       <workItem from="1716151951401" duration="4538000" />
-      <workItem from="1716186201324" duration="33779000" />
+      <workItem from="1716186201324" duration="39977000" />
     </task>
     <servers />
   </component>

@@ -11,17 +11,6 @@ import { Icons } from "@/components/ui/icons"
 export function MainNavLogin() {
   const pathname = usePathname()
 
-  let link = "";
-  const paths = location
-            .pathname
-            .split("/")
-            .filter(path => path !== "")[1];
-
-
-
-        link = "/dashboard/" + paths + "/markattendance";
-        console.log(paths);
-
 
   return (
     <div className="mr-4 hidden md:flex">
