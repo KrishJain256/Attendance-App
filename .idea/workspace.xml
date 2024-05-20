@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00cabdcf-764e-40c8-9296-5ae471def62e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav-login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav-login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-header-login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/app/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +85,7 @@
       <workItem from="1716008242342" duration="2429000" />
       <workItem from="1716083336670" duration="35022000" />
       <workItem from="1716151951401" duration="4538000" />
-      <workItem from="1716186201324" duration="39977000" />
+      <workItem from="1716186201324" duration="40223000" />
     </task>
     <servers />
   </component>
