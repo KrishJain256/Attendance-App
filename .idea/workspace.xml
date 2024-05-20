@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="00cabdcf-764e-40c8-9296-5ae471def62e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Attendance App.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance_app/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance_app/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance_app/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/0002_student_pfp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/0003_student_courses.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/0004_attendance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/0005_alter_attendance_student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/dbconnect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mysql_helper/insert email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/markattendance/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/beams.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/beamsdark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/img/grid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/app/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/lc-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/custom/problem_card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/theme-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/command-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/dropdown-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/icons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/leetcode.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/main-nav.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/scroll-area.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/sheet.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/site-header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/components/ui/theme-dropdown.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/config/docs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/config/site.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/next.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/my-app/types/nav.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/id-card.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/id-card3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/id-card4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/id-card5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/idcar_2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/idcardfinal.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/selfie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/selfie.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/selfie3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/selfie_2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pfps/try1.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2gbervYrM589MWyHhpu6Ss5eqlq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.insert email.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/krish/PycharmProjects/Attendance App/frontend/my-app/app/dashboard/[slug]",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/krish/Apps/pycharm-professional-2024.1/pycharm-2024.1/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]" />
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]/markattendance" />
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/img" />
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/dashboard" />
+      <recent name="$PROJECT_DIR$/frontend/my-app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/dashboard/[slug]" />
+      <recent name="$PROJECT_DIR$/frontend/my-app/app/dashboard" />
+      <recent name="$PROJECT_DIR$/frontend/my-app/components/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/img" />
+      <recent name="$PROJECT_DIR$/frontend/src" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00cabdcf-764e-40c8-9296-5ae471def62e" name="Changes" comment="" />
+      <created>1715970906786</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715970906786</updated>
+      <workItem from="1715970911864" duration="4308000" />
+      <workItem from="1716008242342" duration="2429000" />
+      <workItem from="1716083336670" duration="35022000" />
+      <workItem from="1716151951401" duration="4538000" />
+      <workItem from="1716186201324" duration="33779000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/frontend/my-app/components/ui/button.jsx" />
+        <option value="$PROJECT_DIR$/frontend/my-app/components/ui/dropdown-menu.jsx" />
+        <option value="$PROJECT_DIR$/frontend/my-app/components/ui/scroll-area.jsx" />
+        <option value="$PROJECT_DIR$/frontend/my-app/components/ui/sheet.jsx" />
+        <option value="$PROJECT_DIR$/frontend/my-app/components/ui/mobile-nav.jsx" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Attendance_App$insert_email.coverage" NAME="insert email Coverage Results" MODIFIED="1715974204939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/mysql_helper" />
+  </component>
+</project>
