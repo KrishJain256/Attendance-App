@@ -8,6 +8,21 @@ import {Button} from "@/components/ui/button";
 import { useRef } from "react";
 import Image from "next/image";
 import * as faceapi from 'face-api.js';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 
 let student = [];
@@ -18,6 +33,11 @@ let thead = "";
 let dashlink = "";
 let paths  = "";
 let idpath = "";
+let code = "";
+let flag = 0;
+let validated = 0;
+let err = "";
+
 function componentDidMount() {
 
     let detail;
@@ -46,6 +66,8 @@ function getStud() {
             if(item.rollno == rollno){
                 student = item;
                 console.log(item);
+                courses = Object.keys(item.course).map(function (key) { return item.course[key]; });
+                console.log(courses);
                 idpath = item.pfp.toString();
                 console.log(idpath);
             }
@@ -54,27 +76,10 @@ function getStud() {
     }
 }
 
-function process() {
-    // componentDidMount();
-    getStud();
-    if(student.length>0){
-        process2();
-    }
-}
-
-function process2() {
-    idpath = student.pfp.toString();
-    console.log(idpath);
-}
 
 
 
 function MarkAttendance() {
-    const [, forceRender] = useState(undefined);
-
-    componentDidMount();
-    process()
-
     useEffect(() => {
         // Get the roll number
     paths = location
@@ -86,10 +91,32 @@ function MarkAttendance() {
     dashlink = "/dashboard/" + rollno;
     },[])
 
+    componentDidMount();
+    const [, forceRender] = useState(undefined);
 
+    function process() {
+    // componentDidMount();
     getStud();
+    flag++;
+    if(student.length>0){
+        process2();
+    }
+}
+
+function process2() {
+    idpath = student.pfp.toString();
+    console.log(idpath);
+}
+
+
     setTimeout(process,2000);
 
+    function force() {
+        if(flag == 1){
+        flag++;
+        forceRender((prev) => !prev)
+    }
+    }
 
 
 
@@ -106,9 +133,8 @@ function MarkAttendance() {
       imagePreview: URL.createObjectURL(event.target.files[0]),
       imageFile: event.target.files[0],
     });
-    forceRender((prev) => !prev);
+    // forceRender((prev) => !prev);
     console.log(event.target.files[0]);
-    validateImage();
   };
 
 const idCardRef = useRef();
@@ -159,14 +185,47 @@ const idCardRef = useRef();
         console.log(distance);
         if(distance < 0.5){
           console.log("approved");
+          validated = 1;
+          if(code.length>0){
+              console.log("Uploading");
+
+
+
+          }
         } else {
           console.log("Not approved");
         }
       }
 
     })();
+
+
   }
 
+    function setcourse(e) {
+        code = e.target.value;
+
+    }
+
+  function handleSubmit(e){
+        e.preventDefault();
+        let check = 0;
+        courses.forEach((item) => {
+            if(item == code){
+                check = 1;
+            }
+        })
+        if(check == 0){
+            code = "";
+            console.log("Not your course");
+            err = "This Course is not allotted to you. Consider checking the spelling.";
+            forceRender((prev) => !prev);
+        }
+        if(check == 1){
+            validateImage();
+        }
+
+  }
 
     return (
             <div
@@ -224,7 +283,68 @@ const idCardRef = useRef();
                             mark your attendance, please upload a <span
                                 className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">LIVE image.</span>
                         </h4>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline">Select Course</Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                {
+
+                                    courses.map((coursecode) =>
+                                        <DropdownMenuItem key={coursecode.id} onClick={() => code = coursecode}>
+                                            {coursecode}
+                                        </DropdownMenuItem>
+                                    )
+                                }
+                                {/*<DropdownMenuItem onClick={() => setTheme("light")}>*/}
+                                {/*  Light*/}
+                                {/*</DropdownMenuItem>*/}
+                                {/*<DropdownMenuItem onClick={() => setTheme("dark")}>*/}
+                                {/*  Dark*/}
+                                {/*</DropdownMenuItem>*/}
+                                {/*<DropdownMenuItem onClick={() => setTheme("system")}>*/}
+                                {/*  System*/}
+                                {/*</DropdownMenuItem>*/}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                        <Select onOpenChange={force}>
+                            <SelectTrigger className="w-[280px]">
+                                <SelectValue placeholder="Select Course"/>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectLabel>Courses</SelectLabel>
+                                    {
+                                        courses.map((coursecode) =>
+                                            <SelectItem key={coursecode.id} value={coursecode}
+                                                        onClick={() => console.log(coursecode)}>
+                                                {coursecode}
+                                            </SelectItem>
+                                        )
+                                    }
+                                    <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
+                                    <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
+                                    <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
+                                    <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
+                                    <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
+                                    <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-5">
+                                <label htmlFor="course"
+                                       className="block mb-2 text-m font-medium text-gray-900 dark:text-white"> Course
+                                    :</label>
+                                <input type="coursecode" id="coursecode" name="code" onChange={setcourse}
+                                       className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                       placeholder="Course Code" required/>
+                            </div>
+                            <button type='submit'>Submit</button>
+                        </form>
                         <div>
+
                             <button onClick={handleClick}>Upload Photo</button>
                             <label>
                                 <input
@@ -236,20 +356,24 @@ const idCardRef = useRef();
                                     onChange={handleImageChange}
                                 />
                             </label>
-                            {imageObject && <img ref={selfieRef} src={imageObject.imagePreview}/>}
+                            {imageObject &&
+                                <img ref={selfieRef} src={imageObject.imagePreview} height={300} width={200}/>}
                         </div>
                         <div>
-                            {idpath && < Image src={idpath} ref={idCardRef} alt={"Error in GET IMAGE"} width={500} height={500}/>}
+                            {idpath && < Image src={idpath} ref={idCardRef} alt={"Error in GET IMAGE"} width={200}
+                                               height={300}/>}
                         </div>
-                        {/*<Button variant="outline" onClick={camera.startCamera}>Start Camera</Button>*/}
-                        {/*<Button variant="outline" onClick={camera.takeSnapshot}>Click picture</Button>*/}
+                    </div>
+
+                    {/*<Button variant="outline" onClick={camera.startCamera}>Start Camera</Button>*/}
+                    {/*<Button variant="outline" onClick={camera.takeSnapshot}>Click picture</Button>*/}
 
 
-                        {/*<div className="absolute top-0 right-20 h-16 w-16 ...">*/}
-                        {/*    <button type="button" onClick={process}*/}
-                        {/*            className="relative text-white bg-gradient-to-br to-pink-600 from-sky-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">*/}
-                        {/*        View your Attendance*/}
-                        {/*        <svg className="rtl:rotate-180 w-7 h-7 ms-2" aria-hidden="true"*/}
+                    {/*<div className="absolute top-0 right-20 h-16 w-16 ...">*/}
+                    {/*    <button type="button" onClick={process}*/}
+                    {/*            className="relative text-white bg-gradient-to-br to-pink-600 from-sky-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">*/}
+                    {/*        View your Attendance*/}
+                    {/*        <svg className="rtl:rotate-180 w-7 h-7 ms-2" aria-hidden="true"*/}
                         {/*             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">*/}
                         {/*            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"*/}
                         {/*                  strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>*/}
@@ -259,7 +383,6 @@ const idCardRef = useRef();
                     </div>
 
                 </div>
-            </div>
 
 
     );
