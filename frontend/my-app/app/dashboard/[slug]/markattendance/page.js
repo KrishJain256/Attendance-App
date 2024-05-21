@@ -6,6 +6,8 @@ import { useState } from "react";
 // import camera from "@/components/custom/camera.js"
 import {Button} from "@/components/ui/button";
 import { useRef } from "react";
+import Image from "next/image";
+import * as faceapi from 'face-api.js';
 
 
 let student = [];
@@ -15,7 +17,7 @@ let courses = [];
 let thead = "";
 let dashlink = "";
 let paths  = "";
-
+let idpath = "";
 function componentDidMount() {
 
     let detail;
@@ -44,21 +46,34 @@ function getStud() {
             if(item.rollno == rollno){
                 student = item;
                 console.log(item);
+                idpath = item.pfp.toString();
+                console.log(idpath);
             }
         });
+
     }
 }
 
 function process() {
-    componentDidMount();
+    // componentDidMount();
     getStud();
+    if(student.length>0){
+        process2();
+    }
+}
+
+function process2() {
+    idpath = student.pfp.toString();
+    console.log(idpath);
 }
 
 
 
-
 function MarkAttendance() {
+    const [, forceRender] = useState(undefined);
+
     componentDidMount();
+    process()
 
     useEffect(() => {
         // Get the roll number
@@ -76,6 +91,8 @@ function MarkAttendance() {
     setTimeout(process,2000);
 
 
+
+
     const [imageObject, setImageObject] = useState(null);
 
   const handleFileInput = useRef(null);
@@ -89,7 +106,66 @@ function MarkAttendance() {
       imagePreview: URL.createObjectURL(event.target.files[0]),
       imageFile: event.target.files[0],
     });
+    forceRender((prev) => !prev);
+    console.log(event.target.files[0]);
+    validateImage();
   };
+
+const idCardRef = useRef();
+    const selfieRef = useRef();
+    const isFirstRender = useRef(true);
+
+    function validateImage() {
+  //       const renderFace = async (image, x, y, width, height) => {
+  //   const canvas = document.createElement("canvas");
+  //   canvas.width = width;
+  //   canvas.height = height;
+  //   const context = canvas.getContext("2d");
+  //
+  //   context?.drawImage(image, x, y, width, height, 0, 0, width, height);
+  //   canvas.toBlob((blob) => {
+  //     image.src = URL.createObjectURL(blob);
+  //   }, "image/jpeg");
+  // };
+
+    //     if (isFirstRender.current) {
+    //   isFirstRender.current = false; // toggle flag after first render/mounting
+    //   return;
+    // }
+        (async () => {
+      // loading the models
+      await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
+      await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+      await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
+      await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
+      await faceapi.nets.faceExpressionNet.loadFromUri('/models');
+
+      // detect a single face from the ID card image
+      const idCardFacedetection = await faceapi.detectSingleFace(idCardRef.current,
+        new faceapi.TinyFaceDetectorOptions())
+        .withFaceLandmarks().withFaceDescriptor();
+
+      console.log(idCardFacedetection);
+
+      // detect a single face from the selfie image
+      const selfieFacedetection = await faceapi.detectSingleFace(selfieRef.current,
+        new faceapi.TinyFaceDetectorOptions())
+        .withFaceLandmarks().withFaceDescriptor();
+
+      console.log(selfieFacedetection);
+      if(idCardFacedetection && selfieFacedetection){
+        // Using Euclidean distance to comapare face descriptions
+        const distance = faceapi.euclideanDistance(idCardFacedetection.descriptor, selfieFacedetection.descriptor);
+        console.log(distance);
+        if(distance < 0.5){
+          console.log("approved");
+        } else {
+          console.log("Not approved");
+        }
+      }
+
+    })();
+  }
 
 
     return (
@@ -160,7 +236,10 @@ function MarkAttendance() {
                                     onChange={handleImageChange}
                                 />
                             </label>
-                            {imageObject && <img src={imageObject.imagePreview}/>}
+                            {imageObject && <img ref={selfieRef} src={imageObject.imagePreview}/>}
+                        </div>
+                        <div>
+                            {idpath && < Image src={idpath} ref={idCardRef} alt={"Error in GET IMAGE"} width={500} height={500}/>}
                         </div>
                         {/*<Button variant="outline" onClick={camera.startCamera}>Start Camera</Button>*/}
                         {/*<Button variant="outline" onClick={camera.takeSnapshot}>Click picture</Button>*/}
