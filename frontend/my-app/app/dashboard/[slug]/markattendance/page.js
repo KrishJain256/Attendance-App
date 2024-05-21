@@ -8,21 +8,7 @@ import {Button} from "@/components/ui/button";
 import { useRef } from "react";
 import Image from "next/image";
 import * as faceapi from 'face-api.js';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import moment from "moment";
 
 
 let student = [];
@@ -37,6 +23,10 @@ let code = "";
 let flag = 0;
 let validated = 0;
 let err = "";
+let timestamp = moment().format();
+let ind = timestamp.indexOf("T");
+let curdate = timestamp.slice(0,ind);
+let success = 0;
 
 function componentDidMount() {
 
@@ -188,8 +178,15 @@ const idCardRef = useRef();
           validated = 1;
           if(code.length>0){
               console.log("Uploading");
+              console.log(curdate);
 
-
+            axios.post(
+                "http://localhost:8000/attendance_app/attendance/",
+                {student:rollno,date:curdate,course:code}
+            ).then((res) => {
+                code = "";
+                success = 1;
+            }).catch((err) => {});
 
           }
         } else {
@@ -248,121 +245,107 @@ const idCardRef = useRef();
                 <div
                     className="relative px-6 pt-10 pb-8 w-4/5 h-full shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10 block p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
                     <div className="relative h-full">
+                        <div className="grid grid-cols-3 gap-4">
+                            <div>
+                                <nav className="flex mb-4" aria-label="Breadcrumb">
+                                    <ol className="inline-flex items-center space-x-1 md:space-x-3 rtl:space-x-reverse">
+                                        <li className="inline-flex items-center">
+                                            <a href={dashlink}
+                                               className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                                                <svg className="w-3 h-3 me-2.5" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                     viewBox="0 0 20 20">
+                                                    <path
+                                                        d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                                                </svg>
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                        <li aria-current="page">
+                                            <div className="flex items-center">
+                                                <svg className="w-3 h-3 text-gray-400 mx-1 rtl:rotate-180"
+                                                     aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                    <path stroke="currentColor" strokeLinecap="round"
+                                                          strokeLinejoin="round"
+                                                          strokeWidth="2" d="m1 9 4-4-4-4"/>
+                                                </svg>
+                                                <span
+                                                    className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Mark Attendance</span>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </nav>
+                                <div className="pt-4"></div>
+                                <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">Mark
+                                    Attendance</h2>
+                                <h4 className="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-xl lg:text-xl dark:text-white">To
+                                    mark your attendance, please upload a <span
+                                        className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">LIVE image.</span>
+                                </h4>
 
-
-                        <nav className="flex mb-4" aria-label="Breadcrumb">
-                            <ol className="inline-flex items-center space-x-1 md:space-x-3 rtl:space-x-reverse">
-                                <li className="inline-flex items-center">
-                                    <a href={dashlink}
-                                       className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                                        <svg className="w-3 h-3 me-2.5" aria-hidden="true"
-                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                                        </svg>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li aria-current="page">
-                                    <div className="flex items-center">
-                                        <svg className="w-3 h-3 text-gray-400 mx-1 rtl:rotate-180" aria-hidden="true"
-                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                                                  strokeWidth="2" d="m1 9 4-4-4-4"/>
-                                        </svg>
-                                        <span
-                                            className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Mark Attendance</span>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="mb-5">
+                                        <label htmlFor="course"
+                                               className="block mb-2 text-m font-medium text-gray-900 dark:text-white"> Course
+                                            :</label>
+                                        <input type="coursecode" id="coursecode" name="code" onChange={setcourse}
+                                               className="shadow-sm w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                               placeholder="Course Code" required/>
                                     </div>
-                                </li>
-                            </ol>
-                        </nav>
-                        <div className="pt-4"></div>
-                        <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">Mark
-                            Attendance</h2>
-                        <h4 className="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-xl lg:text-xl dark:text-white">To
-                            mark your attendance, please upload a <span
-                                className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">LIVE image.</span>
-                        </h4>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant="outline">Select Course</Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                                {
-
-                                    courses.map((coursecode) =>
-                                        <DropdownMenuItem key={coursecode.id} onClick={() => code = coursecode}>
-                                            {coursecode}
-                                        </DropdownMenuItem>
-                                    )
-                                }
-                                {/*<DropdownMenuItem onClick={() => setTheme("light")}>*/}
-                                {/*  Light*/}
-                                {/*</DropdownMenuItem>*/}
-                                {/*<DropdownMenuItem onClick={() => setTheme("dark")}>*/}
-                                {/*  Dark*/}
-                                {/*</DropdownMenuItem>*/}
-                                {/*<DropdownMenuItem onClick={() => setTheme("system")}>*/}
-                                {/*  System*/}
-                                {/*</DropdownMenuItem>*/}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                        <Select onOpenChange={force}>
-                            <SelectTrigger className="w-[280px]">
-                                <SelectValue placeholder="Select Course"/>
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectGroup>
-                                    <SelectLabel>Courses</SelectLabel>
-                                    {
-                                        courses.map((coursecode) =>
-                                            <SelectItem key={coursecode.id} value={coursecode}
-                                                        onClick={() => console.log(coursecode)}>
-                                                {coursecode}
-                                            </SelectItem>
-                                        )
-                                    }
-                                    <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-                                    <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-                                    <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-                                    <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-                                    <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-                                    <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-                                </SelectGroup>
-                            </SelectContent>
-                        </Select>
-
-                        <form onSubmit={handleSubmit}>
-                            <div className="mb-5">
-                                <label htmlFor="course"
-                                       className="block mb-2 text-m font-medium text-gray-900 dark:text-white"> Course
-                                    :</label>
-                                <input type="coursecode" id="coursecode" name="code" onChange={setcourse}
-                                       className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                                       placeholder="Course Code" required/>
+                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                           htmlFor="user_avatar">Upload file</label>
+                                    <input
+                                        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                        aria-describedby="user_avatar_help" id="user_avatar" type="file"
+                                        accept="image/*"
+                                        capture="user" ref={handleFileInput} onChange={handleImageChange}/>
+                                    <div className="mt-1 text-sm text-gray-500 dark:text-gray-300"
+                                         id="user_avatar_help">This
+                                        image will be used for authentication purposes.
+                                    </div>
+                                    <div className="pt-6"></div>
+                                    <button type="submit"
+                                            className="relative text-white bg-gradient-to-br to-pink-600 from-sky-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Mark Attendance
+                                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
+                                                  strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                        </svg>
+                                    </button>
+                                </form>
                             </div>
-                            <button type='submit'>Submit</button>
-                        </form>
-                        <div>
+                            <div>
 
-                            <button onClick={handleClick}>Upload Photo</button>
-                            <label>
-                                <input
-                                    style={{display: "none"}}
-                                    type="file"
-                                    accept="image/*"
-                                    capture="user"
-                                    ref={handleFileInput}
-                                    onChange={handleImageChange}
-                                />
-                            </label>
-                            {imageObject &&
-                                <img ref={selfieRef} src={imageObject.imagePreview} height={300} width={200}/>}
+
+                                <div
+                                    className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+                                    {imageObject &&
+                                        <img ref={selfieRef} src={imageObject.imagePreview} height={300} width={200}
+                                             className="rounded-t-lg w-full"/>}
+
+                                    <div className="p-5">
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Uploaded
+                                            Image</h5>
+                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Your attendance
+                                            will be marked automatically if this is you.</p>
+                                    </div>
+                                </div>
+                                <div className="hidden">
+                                    {idpath &&
+                                        < Image src={idpath} ref={idCardRef} alt={"Error in GET IMAGE"} width={200}
+                                                height={300}/>}
+                                </div>
+
+                            </div>
+                            <div>
+                                Confirmation Video
+                            </div>
                         </div>
-                        <div>
-                            {idpath && < Image src={idpath} ref={idCardRef} alt={"Error in GET IMAGE"} width={200}
-                                               height={300}/>}
-                        </div>
+
+
                     </div>
 
                     {/*<Button variant="outline" onClick={camera.startCamera}>Start Camera</Button>*/}
@@ -374,15 +357,15 @@ const idCardRef = useRef();
                     {/*            className="relative text-white bg-gradient-to-br to-pink-600 from-sky-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">*/}
                     {/*        View your Attendance*/}
                     {/*        <svg className="rtl:rotate-180 w-7 h-7 ms-2" aria-hidden="true"*/}
-                        {/*             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">*/}
-                        {/*            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"*/}
-                        {/*                  strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>*/}
-                        {/*        </svg>*/}
-                        {/*    </button>*/}
-                        {/*</div>*/}
-                    </div>
-
+                    {/*                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">*/}
+                    {/*                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"*/}
+                    {/*                      strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>*/}
+                    {/*            </svg>*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
                 </div>
+
+            </div>
 
 
     );
