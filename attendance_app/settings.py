@@ -55,7 +55,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://localhost:3001'
+    'http://localhost:3001',
+    'https://cdn.jsdelivr.net'
 ]
 
 ROOT_URLCONF = 'attendance_app.urls'

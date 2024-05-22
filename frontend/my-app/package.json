@@ -11,16 +11,23 @@
   "dependencies": {
     "@capacitor/cli": "^6.0.0",
     "@capacitor/core": "^6.0.0",
+    "@mediapipe/face_detection": "^0.4.1646425229",
+    "@mediapipe/face_mesh": "^0.4.1657299874",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/themes": "^3.0.5",
+    "@tensorflow-models/face-detection": "1.0.0",
+    "@tensorflow-models/face-landmarks-detection": "1.0.5",
+    "@tensorflow/tfjs-backend-webgl": "^3.12.0",
+    "@tensorflow/tfjs-converter": "3.14.0",
+    "@tensorflow/tfjs-core": "3.21.0",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "express": "^4.19.2",
-    "face-api.js": "^0.22.2",
+    "face-api.js": "^0.20.0",
     "fs": "^0.0.1-security",
     "lucide-react": "^0.378.0",
     "moment": "^2.30.1",
@@ -29,13 +36,19 @@
     "react": "^18",
     "react-dom": "^18",
     "react-resizable-panels": "^2.0.19",
+    "rollup": "^4.18.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tfjs-image-recognition-base": "^0.6.0",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
+  },
+  "browser": {
+    "fs": true
   }
 }
