@@ -1,5 +1,5 @@
 import mysql.connector
-con = mysql.connector.connect(host = "localhost",user = "root",passwd = "D1y_8U-leK",database="attendance_app")
+con = mysql.connector.connect(host = "localhost",user = "root",passwd = "[yourpassword]",database="attendance_app")
 cursor = con.cursor()
 
 while True:
